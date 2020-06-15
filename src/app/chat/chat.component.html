@@ -1,1 +1,21 @@
-<p>chat works!</p>
+<div #formContentDiv class="chat-messages-container">
+  <div  class="chat-row" *ngFor="let msg of messages">
+    <div [ngClass]="msg.sent?'chat-message-sent':'chat-message-received'">
+      <span *ngIf="!msg.isGiphy">{{msg.message}}</span>
+      <img class="chat-image" *ngIf="msg.isGiphy" [src]="msg.message" alt="GIF" />
+    </div>
+  </div>
+</div>
+<div class="chat-form-container">
+  <div class="chat-form">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
+      <button mat-fab (click)="loadGiphyFinder()" color="primary" gdAlignColumns="center">
+        <mat-icon aria-hidden="false" aria-label="Send a gif">gif</mat-icon>
+      </button>
+      <input type="text" class="chat-text-message" rows="3" [(ngModel)]="text">
+      <button mat-fab (click)="sendMessage()" color="primary">
+        <mat-icon aria-hidden="false" aria-label="Send a gif">send</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

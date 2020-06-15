@@ -1,0 +1,19 @@
+<form>
+    <mat-form-field class="giphy-form-filed">
+        <input matInput [(ngModel)]="text" name="text" (ngModelChange)="inputTextChanged($event)"/>
+    </mat-form-field>
+</form>
+
+<mat-dialog-content>
+    <div fxLayout="row" fxLayoutAlign="center" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!loading">
+        <mat-grid-list cols="4" rowHeight="2:2">
+            <mat-grid-tile *ngFor="let giphy of giphys">
+                <img class="loading" [src]="giphy.image" [alt]="giphy.title" (click)="selectedGiphy(giphy)" />
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</mat-dialog-content>
