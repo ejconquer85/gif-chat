@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
+
+
 
 import { GiphyFinderComponent } from './giphy-finder.component';
 
@@ -8,7 +12,17 @@ describe('GiphyFinderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GiphyFinderComponent ]
+      declarations: [ GiphyFinderComponent ],
+      imports: 
+      [
+        HttpClientModule,
+        MatDialogModule
+      ],
+      providers: 
+      [
+        HttpClient,
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
   }));

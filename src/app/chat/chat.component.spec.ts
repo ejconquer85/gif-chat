@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChatComponent } from './chat.component';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -8,7 +9,15 @@ describe('ChatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatComponent ]
+      declarations: [ ChatComponent ],
+      imports: 
+      [
+        MatDialogModule
+      ],
+      providers: 
+      [
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
   }));

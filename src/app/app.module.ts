@@ -38,7 +38,7 @@ import { GiphyFinderComponent } from './giphy-finder/giphy-finder.component';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
