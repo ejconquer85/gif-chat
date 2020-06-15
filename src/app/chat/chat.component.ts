@@ -36,6 +36,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   sendMessage(){ 
     this.messages.push({ message: this.text, sent: true, isGiphy: false});
+    this.text = "";
   }
 
   ngAfterViewChecked() {        
